@@ -1,12 +1,56 @@
+<!DOCTYPE html>
 <html>
+  <head>
+<link rel="stylesheet" type="text/css" href="css/suggestion.css" />
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/typeahead/typeahead.bundle.js"></script>
 
-<head>
-<title>我的第一个 HTML 页面</title>
 </head>
-
 <body>
-<p>body 元素的内容会显示在浏览器中。</p>
-<p>title 元素的内容会显示在浏览器的标题栏中。</p>
-</body>
+<center>
+<div id="container" style="height:400px;">
+  <input class="typeahead" type="text" size="400" placeholder="suggestion" />
+</div>
+<hr />
+</center>
 
+<pre>
+
+后端:
+
+  spring boot
+
+
+前端依赖:
+
+1. jquery 1.9+
+
+2. twitter typeahead 
+
+------------------------------------------------
+
+
+
+</pre>
+
+
+<script>
+ var bestPictures = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    //prefetch: '../data/films/post_1960.json',
+    remote: {
+      url: 'suggestion?keyword=%QUERY',
+      wildcard: '%QUERY'
+    }
+  });
+
+  $('.typeahead').typeahead(null, {
+    name: 'best-pictures',
+    display: 'value',
+    source: bestPictures
+  });
+</script>
+
+</body>
 </html>

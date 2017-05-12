@@ -1,3 +1,17 @@
+buildscript {
+	repositories {
+		maven { url "http://repo.spring.io/libs-snapshot" }
+		mavenLocal()
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+	}
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
+
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:1.5.3.RELEASE")
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '1.5.3.RELEASE'
