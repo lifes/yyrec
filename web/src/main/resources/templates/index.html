@@ -14,6 +14,22 @@
 <hr />
 </center>
 
+<script>
+ var bestPictures = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    remote: {
+      url: 'suggestion?keyword=%QUERY',
+      wildcard: '%QUERY'
+    }
+  });
+
+  $('.typeahead').typeahead(null, {
+    name: 'best-pictures',
+    display: 'value',
+    source: bestPictures
+  });
+</script>
 <pre>
 
 后端:
@@ -33,24 +49,6 @@
 
 </pre>
 
-
-<script>
- var bestPictures = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    //prefetch: '../data/films/post_1960.json',
-    remote: {
-      url: 'suggestion?keyword=%QUERY',
-      wildcard: '%QUERY'
-    }
-  });
-
-  $('.typeahead').typeahead(null, {
-    name: 'best-pictures',
-    display: 'value',
-    source: bestPictures
-  });
-</script>
 
 </body>
 </html>

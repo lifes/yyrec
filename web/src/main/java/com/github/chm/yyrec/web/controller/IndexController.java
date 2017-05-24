@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
+
 
 @Controller
 public class IndexController {
@@ -29,7 +29,7 @@ public class IndexController {
 		List<Map<String, Object>> list = new ArrayList<>();
 		for (int i = 0; i < 10; i++) {
 			Map<String, Object> map = new HashMap<>();
-			map.put("value", "hahah" + i);
+			map.put("value", "浙AZD19"+i);
 			list.add(map);
 		}
 
